@@ -1,6 +1,6 @@
 # Around Us
 
-This is a web application that shows nearby places of interest. The time I took to finish it is around 20 hours including learning all the tools and framework from 0 (besides git).
+This is a web application that shows nearby places of interest.
 
 ## Technologies
 
@@ -17,7 +17,7 @@ This is a web application that shows nearby places of interest. The time I took 
 npm install
 ```
 
-## Start:
+## Start
 
 ```
 npm start
@@ -35,12 +35,21 @@ Check the coverage by:
 ```
 npm test -- --coverage
 ```
+## How to use the application
+1. Input your Foursquare client ID and client secret ID
+2. Click "Start"
+3. Input your location or get your current location:
+  1) Input your location by zipcode or place name - > click "Search".
+  2) Input your location by getting your current location. The browser will ask you to allow it to get your location. Wait for 3-7  seconds.
+4. You can see your location list.
+  
 
-## To do list:
 
-1. Beautify the application. Right now don't have enough time to work on it. 
+## To do list
 
-2. Get current location needs to wait for several seconds to show the result list now. So the user should be told to wait and the button should be disabled until I get the venues result. And if we got nothing, we need to tell the user. User experience here needs to be improved.
+1. Beautify the application. Right now don't have enough time to work on it. Will fix it in next version.
+
+2. Get current location needs to wait for several seconds to show the result list now. So the user should be told to wait and the button should be disabled until we get the venues result. And if we got nothing, we need to tell the user. User experience here needs to be improved.
 
 3. Designed to show 30 places everytime. Can make the results larger in the future.
 
