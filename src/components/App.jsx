@@ -161,7 +161,7 @@ class App extends Component {
 
 	renderCredential() {
 		return (
-			<div>
+			<div className="App">
 				<FoursquareAuth
 					foursquareClientID={this.state.foursquareClientID}
 					foursquareClientSecretID={this.state.foursquareClientSecretID}
@@ -175,7 +175,7 @@ class App extends Component {
 
 	renderSearch() {
 		return (
-			<div>
+			<div className="App">
 				<Navigation
 					onClickBack={this.onClickBack}
 					onClickSearch={this.onClickSearch}

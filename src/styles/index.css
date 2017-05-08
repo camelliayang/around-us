@@ -1,0 +1,36 @@
+@import url('http://fonts.googleapis.com/css?family=Open+Sans:400,700');
+
+body{
+	font:14px/1.5 Arial, Helvetica, sans-serif;
+	padding:0;
+	margin:0;
+	background: #eb01a5;
+  background-image: url('./body-background.jpg');
+  background-image: url('./body-background.jpg'), linear-gradient(#eb01a5, #d13531);
+}
+
+.header-around-us {
+	background-color:#292c2f;
+	box-shadow:0 1px 1px #ccc;
+	padding: 20px 40px;
+	height: 80px;
+	color: #42e5f4;
+	box-sizing: border-box;
+}
+
+.header-around-us .header-limiter {
+	max-width: 1200px;
+	text-align: center;
+	margin: 0 auto;
+}
+
+.header-around-us .header-limiter h1{
+	float: left;
+	font: normal 28px Cookie, Arial, Helvetica, sans-serif;
+	line-height: 40px;
+	margin:0;
+}
+
+.header-around-us .header-limiter h1 span {
+	color: #bc40df;
+}

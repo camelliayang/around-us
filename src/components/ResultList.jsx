@@ -17,7 +17,7 @@ class ResultList extends Component {
 
   render() {
     return (
-      <div >
+      <div>
         {this.props.venues && this.props.venues.map(this.eachPlace)}
       </div>
     )
