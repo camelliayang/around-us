@@ -21,7 +21,7 @@ it('clicks start button and switches to search view', () => {
 
   const searchButton = wrapper.find('#searchButton');
   expect(searchButton.text()).toEqual('Search');
-  
+
 });
 
 it('clicks search button and search for result', () => {
@@ -35,7 +35,7 @@ it('clicks search button and search for result', () => {
   const searchButton = wrapper.find('#searchButton');
   expect(searchButton.text()).toEqual('Search');
   searchButton.simulate('click');
-  expect(wrapper.state().venues).toEqual([{"venue": {"id": 22, "name": "National Park"}}]);
+  expect(wrapper.state().venues).toEqual([{ "venue": { "id": 22, "name": "National Park" } }]);
 });
 
 it('clicks back button and switches to clientID input view', () => {
@@ -59,7 +59,7 @@ it('simulates location change events', () => {
     searchMode: true
   });
   const name = 'Starbucks';
-  wrapper.find('#locationArea').simulate('change', { target : { value: name }});
+  wrapper.find('#locationArea').simulate('change', { target: { value: name } });
 
   expect(wrapper.state().location).toEqual(name);
 });
@@ -67,7 +67,7 @@ it('simulates location change events', () => {
 it('simulates client ID input change events', () => {
   const wrapper = mount(<App />);
   const clientID = '123';
-  wrapper.find('#clientID').simulate('change', { target : { value: clientID }});
+  wrapper.find('#clientID').simulate('change', { target: { value: clientID } });
 
   expect(wrapper.state().foursquareClientID).toEqual(clientID);
 });
@@ -75,11 +75,37 @@ it('simulates client ID input change events', () => {
 it('simulates client secret ID change events', () => {
   const wrapper = mount(<App />);
   const clientSecret = '456';
-  wrapper.find('#clientSecretID').simulate('change', { target : { value: clientSecret }});
+  wrapper.find('#clientSecretID').simulate('change', { target: { value: clientSecret } });
 
   expect(wrapper.state().foursquareClientSecretID).toEqual(clientSecret);
 });
 
+it('tests onPositionSuccess method', () => {
+  const wrapper = shallow(<App />);
+  const coords = {
+    latitude: 45.6,
+    longitude: -56.7
+  }
+  wrapper.instance().onPositionSuccess({ coords: coords });
+  expect(wrapper.state().myCoords).toEqual(coords);
+});
 
+it('tests onPositionError method', () => {
+  const wrapper = shallow(<App />);
+  wrapper.instance().onPositionError('Man-made Error');
+  expect(wrapper.state().myCoords).toBeNull();
+});
+
+it('clicks get current location button', () => {
+  const wrapper = mount(<App />);
+  wrapper.setState({
+    searchMode: true,
+    foursquareClientID: '123',
+    foursquareClientSecretID: '456',
+  });
+  const getLocationButton = wrapper.find('#getCurrentLocationButton');
+  expect(getLocationButton.text()).toEqual('My Nearby Places of Interest');
+  getLocationButton.simulate('click');
+});
 
 

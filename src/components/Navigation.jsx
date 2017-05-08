@@ -10,6 +10,10 @@ class Navigation extends Component {
         <br></br>
         <button id="backButton" onClick={this.props.onClickBack}>Back</button>
         <button id="searchButton" onClick={this.props.onClickSearch}>Search</button>
+        <br></br>
+        <button id="getCurrentLocationButton" onClick={this.props.onClickGetLocation}>
+          My Nearby Places of Interest
+        </button>
       </div>
     )
   }
