@@ -6,10 +6,10 @@ class Navigation extends Component {
     return (
       <div>
         <p>Please input your location: </p>
-        <input onChange={this.props.onChangeLocation} type="text" placeholder="Location" />
+        <input id="locationArea" onChange={this.props.onChangeLocation} type="text" placeholder="Location" />
         <br></br>
-        <button onClick={this.props.onClickBack}>Back</button>
-        <button onClick={this.props.onClickSearch}>Search</button>
+        <button id="backButton" onClick={this.props.onClickBack}>Back</button>
+        <button id="searchButton" onClick={this.props.onClickSearch}>Search</button>
       </div>
     )
   }

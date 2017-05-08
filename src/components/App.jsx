@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Foursquare from './FoursquareAuth';
+import FoursquareAuth from './FoursquareAuth';
 import Navigation from './Navigation';
-import ShowResult from './ShowResult';
+import ResultList from './ResultList';
 
 var foursquare = require('foursquarevenues');
 
@@ -41,27 +41,13 @@ class App extends Component {
  * If two ID inputs are there, set searchMode to the state.
  */
 	handleSuccess = () => {
-		if (this.validateID()) {
-			this.setState({ searchMode: true });
-		}
-	}
-
-/**
- * If two ID inputs are there, return true.
- * In the future, can be extended to check whether two IDs 
- * are correct.
- * @return {bool} True for correct and ok to render.
- */
-	validateID() {
-		if (
-			this.state.foursquareClientID &&
+		if (this.state.foursquareClientID &&
 			this.state.foursquareClientID !== '' &&
 			this.state.foursquareClientSecretID &&
 			this.state.foursquareClientSecretID !== ''
 		) {
-			return true;
+			this.setState({ searchMode: true });
 		}
-		return false;
 	}
 
 /**
@@ -91,7 +77,10 @@ class App extends Component {
  */
 	onClickSearch = () => {
 		if (
-			this.validateID() &&
+			this.state.foursquareClientID &&
+			this.state.foursquareClientID !== '' &&
+			this.state.foursquareClientSecretID &&
+			this.state.foursquareClientSecretID !== '' &&
 			this.state.location &&
 			this.state.location !== ''
 		) {
@@ -110,9 +99,9 @@ class App extends Component {
  */
 	searchPlacesAndShow(params) {
 		foursquare(this.state.foursquareClientID, this.state.foursquareClientSecretID)
-			.exploreVenues(params, (error, places) => {
+			.exploreVenues(params, (error, venues) => {
 				if (!error) {
-					this.setVenues(places.response.groups);
+					this.setVenues(venues.response.groups);
 				} else {
 					this.setVenues(null);
 				}
@@ -140,7 +129,7 @@ class App extends Component {
 	renderCredential() {
 		return (
 			<div>
-				<Foursquare
+				<FoursquareAuth
 					foursquareClientID={this.state.foursquareClientID}
 					foursquareClientSecretID={this.state.foursquareClientSecretID}
 					onInputID={this.onInputID}
@@ -159,7 +148,7 @@ class App extends Component {
 					onClickSearch={this.onClickSearch}
 					onChangeLocation={this.onChangeLocation}
 				/>
-				{this.state.venues && <ShowResult venues={this.state.venues} />}
+				{this.state.venues && <ResultList venues={this.state.venues} />}
 			</div>
 		);
 	}

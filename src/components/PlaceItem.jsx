@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class Place extends Component {
+class PlaceItem extends Component {
 
   render() {
     return (
@@ -9,4 +9,4 @@ class Place extends Component {
   }
 }
 
-export default Place;
+export default PlaceItem;
