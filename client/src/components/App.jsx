@@ -133,11 +133,11 @@ class App extends Component {
 		this.searchPlacesAndShow(params);
 	}
 
-	onPositionError = (position) => {
+	onPositionError = (positionError) => {
 		this.setState({
 			myCoords: null,
 		});
-		console.error("Cannot get location: " + positionError);
+		console.error("Cannot get location: " + positionError.message);
 	}
 
 	/**
