@@ -133,7 +133,7 @@ class App extends Component {
 		this.searchPlacesAndShow(params);
 	}
 
-	onPositionError(positionError) {
+	onPositionError = (position) => {
 		this.setState({
 			myCoords: null,
 		});

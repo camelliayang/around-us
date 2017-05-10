@@ -9,6 +9,7 @@
     "foursquarevenues":"^3.0.1"
   },
   "scripts": {
+    "postinstall": "cd client && npm install",
     "start": "concurrently \"npm run server\" \"npm run client\"",
     "server": "babel-node server.js",
     "client": "babel-node start-client.js"

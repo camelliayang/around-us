@@ -14,29 +14,26 @@ This is a web application that shows nearby places of interest.
 ## Requirement
 Node >= 6 installed
 
-## Installation
+## Runnying locally
 
 ```
-npm install
-```
-
-## Start
-
-```
-npm start // for both server and client
+npm i
+cd client
+npm i
+cd ..
+npm start
 ```
 
 ## Running the tests
 
-Run tests by:
-Go to client folder
-
 ```
+cd client
 npm test
 ```
 
 Check the coverage by:
 ```
+cd client
 npm test -- --coverage
 ```
 ## How to use the application
