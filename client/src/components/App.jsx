@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import FoursquareAuth from './FoursquareAuth';
 import Navigation from './Navigation';
 import ResultList from './ResultList';
-
-var foursquare = require('foursquarevenues');
+import Client from '../Client'
 
 class App extends Component {
 	constructor(props) {
@@ -99,14 +98,9 @@ class App extends Component {
 	 * @param{Object} Location
 	 */
 	searchPlacesAndShow(params) {
-		foursquare(this.state.foursquareClientID, this.state.foursquareClientSecretID)
-			.exploreVenues(params, (error, venues) => {
-				if (!error) {
-					this.setVenues(venues.response.groups);
-				} else {
-					this.setVenues(null);
-				}
-			});
+		Client.explore(this.state.foursquareClientID, this.state.foursquareClientSecretID, params, (venueGroups) => {
+			this.setVenues(venueGroups);
+		});
 	}
 
 	/**

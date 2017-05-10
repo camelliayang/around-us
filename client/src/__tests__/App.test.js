@@ -24,7 +24,7 @@ it('clicks start button and switches to search view', () => {
 
 });
 
-it('clicks search button and search for result', () => {
+it('clicks search button and search for result with no params', () => {
   const wrapper = mount(<App />);
   wrapper.setState({
     searchMode: true,
@@ -35,7 +35,7 @@ it('clicks search button and search for result', () => {
   const searchButton = wrapper.find('#searchButton');
   expect(searchButton.text()).toEqual('Search');
   searchButton.simulate('click');
-  expect(wrapper.state().venues).toEqual([{ "venue": { "id": 22, "name": "National Park" } }]);
+  expect(wrapper.state().venues).toBeNull();
 });
 
 it('clicks back button and switches to clientID input view', () => {

@@ -6,12 +6,15 @@ This is a web application that shows nearby places of interest.
 
 1. Using React to build client app.
 2. Using Node.js for the server.
-3. Using Jest for unit testing.
+3. Using Jest for testing.
 4. Using Foursquare API.
 5. Using foursquarevenues to get venues.
 6. Using Create React App to get the raw application.
 
-## Installing
+## Requirement
+Node >= 6 installed
+
+## Installation
 
 ```
 npm install
@@ -20,12 +23,13 @@ npm install
 ## Start
 
 ```
-npm start
+npm start // for both server and client
 ```
 
 ## Running the tests
 
 Run tests by:
+Go to client folder
 
 ```
 npm test

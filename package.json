@@ -1,21 +1,19 @@
 {
-  "name": "around-us",
-  "version": "0.1.4",
+  "name": "around-us-server",
+  "version": "0.0.1",
   "private": true,
   "dependencies": {
-    "react": "^15.5.4",
-    "react-dom": "^15.5.4",
-    "foursquarevenues": "^3.0.1"
-  },
-  "devDependencies": {
-    "react-scripts": "0.9.5",
-    "react-test-renderer":"^15.5.4",
-    "enzyme":"^2.8.2"
+    "babel-cli":"^6.24.1",
+    "babel-core":"^6.24.1",
+    "express":"^4.15.2",
+    "foursquarevenues":"^3.0.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "babel-node server.js",
+    "client": "babel-node start-client.js"
+  },
+  "devDependencies": {
+    "concurrently":"^3.4.0"
   }
 }
